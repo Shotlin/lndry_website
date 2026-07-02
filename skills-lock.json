@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "781bd6d3f9b19f8c9af6b53d8d0e4876d0183841b565db34ca7092ffa412d111"
+    },
+    "gsap-framer-scroll-animation": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/gsap-framer-scroll-animation/SKILL.md",
+      "computedHash": "e6a4caf23b818ffc5185d51339e941ca783944b6693da877fc1206693b2dff66"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "20c0ed05adb01fde3db5bb1aeefd61d33db2471bdadfd9c9ce19d30dd54a12fd"
+    }
+  }
+}
