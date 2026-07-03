@@ -5,18 +5,47 @@ import { Pill } from "@/components/ui/Pill";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { Button } from "@/components/ui/Button";
 import { CatalogGrid } from "@/components/services/CatalogGrid";
+import { LNDRYMotionOverlay } from "@/components/overlays/LNDRYMotionOverlay";
+
+const title = "Services — LNDRY";
+const description =
+  "A premium web catalog that makes service scope, partner eligibility and rate basis visible before you start booking.";
 
 export const metadata: Metadata = {
-  title: "Services — LNDRY",
-  description:
-    "A premium web catalog that makes service scope, partner eligibility and rate basis visible before you start booking.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "LNDRY",
+    type: "website",
+    images: ["/brand/website-finishing/og/services-og-1200x630.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/brand/website-finishing/og/services-og-1200x630.png"],
+  },
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-ink py-20 md:py-28">
-        <Container className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <section className="relative overflow-hidden bg-ink py-24 md:py-32">
+        <div className="absolute inset-0">
+          <Image
+            src="/brand/website-story/website-services-hero-care-specialist-v1.png"
+            alt="An LNDRY partner inspecting a freshly pressed shirt at a specialist care counter"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,#080f14_18%,rgba(8,15,20,0.75)_55%,rgba(8,15,20,0.35)_100%)]" />
+        </div>
+
+        <Container className="relative flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <SectionEyebrow tone="onDark">Services</SectionEyebrow>
             <h1 className="mt-3 font-display text-headline text-white">
@@ -34,12 +63,16 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="bg-bg-app py-20 md:py-24">
-        <Container>
+      <section className="relative overflow-hidden bg-bg-app py-20 md:py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-6 hidden opacity-70 md:block">
+          <LNDRYMotionOverlay variant="service-tags" className="mx-auto max-w-3xl" />
+        </div>
+
+        <Container className="relative">
           <h2 className="max-w-2xl font-display text-headline text-ink">
             Choose a service, then compare who can actually handle it
           </h2>
-          <div className="mt-10">
+          <div className="mt-16">
             <CatalogGrid />
           </div>
         </Container>

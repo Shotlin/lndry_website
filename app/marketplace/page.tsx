@@ -3,11 +3,28 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { CompareTool } from "@/components/marketplace/CompareTool";
+import { LNDRYMotionOverlay } from "@/components/overlays/LNDRYMotionOverlay";
+
+const title = "Marketplace — LNDRY";
+const description =
+  "Compare nearby laundry partners by rate basis, distance, slots and verification before you book.";
 
 export const metadata: Metadata = {
-  title: "Marketplace — LNDRY",
-  description:
-    "Compare nearby laundry partners by rate basis, distance, slots and verification before you book.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "LNDRY",
+    type: "website",
+    images: ["/brand/website-finishing/og/marketplace-og-1200x630.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/brand/website-finishing/og/marketplace-og-1200x630.png"],
+  },
 };
 
 export default function MarketplacePage() {
@@ -25,20 +42,26 @@ export default function MarketplacePage() {
               or losing the booking context.
             </p>
           </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-xl shadow-elevated">
-            <Image
-              src="/brand/banners/compare-partners-v1.png"
-              alt="Compare nearby laundry partners banner"
-              fill
-              sizes="(min-width: 1024px) 560px, 90vw"
-              className="object-cover"
-              priority
+          <div className="relative">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xl shadow-elevated">
+              <Image
+                src="/brand/website-story/website-marketplace-hero-vendor-order-v1.png"
+                alt="An LNDRY vendor reviewing a new order on a tablet in their store"
+                fill
+                sizes="(min-width: 1024px) 560px, 90vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <LNDRYMotionOverlay
+              variant="marketplace-proof"
+              className="absolute -bottom-10 -right-6 hidden w-[62%] sm:block"
             />
           </div>
         </Container>
       </section>
 
-      <section className="bg-bg-app py-20 md:py-24">
+      <section className="bg-bg-app py-20 pt-28 md:py-24 md:pt-28">
         <Container>
           <CompareTool />
         </Container>
@@ -53,6 +76,7 @@ export default function MarketplacePage() {
               story stays operationally true to the approved workflow.
             </p>
           </div>
+          <LNDRYMotionOverlay variant="verified-badge" className="mx-auto w-full max-w-xs" />
         </Container>
       </section>
     </>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { Pill } from "@/components/ui/Pill";
@@ -7,10 +8,26 @@ import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { BrowserFrame } from "@/components/ui/BrowserFrame";
 import { AudienceNav } from "@/components/partners/AudienceNav";
 
+const title = "Partners & operations — LNDRY";
+const description =
+  "How LNDRY's operating model works for vendors, riders and admin: application, fulfilment, handover and review.";
+
 export const metadata: Metadata = {
-  title: "Partners & operations — LNDRY",
-  description:
-    "How LNDRY's operating model works for vendors, riders and admin: application, fulfilment, handover and review.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "LNDRY",
+    type: "website",
+    images: ["/brand/website-finishing/og/partners-og-1200x630.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/brand/website-finishing/og/partners-og-1200x630.png"],
+  },
 };
 
 const ONBOARDING_STEPS = ["Application review", "Service editor", "Order assignment", "Processing audit"];
@@ -19,20 +36,32 @@ const OTP_STEPS = ["Pickup OTP", "Partner return", "Delivery OTP", "Completed"];
 export default function PartnersPage() {
   return (
     <>
-      <section className="bg-[linear-gradient(135deg,#5046c8_0%,#6c63e8_100%)] py-20 md:py-24">
-        <Container>
-          <SectionEyebrow tone="onDark">Partners &amp; operations</SectionEyebrow>
-          <h1 className="mt-3 max-w-2xl font-display text-headline text-white">
-            Vendors, riders and admin — one designed system
-          </h1>
-          <p className="mt-5 max-w-xl font-body text-body-lg text-white/80">
-            How LNDRY&rsquo;s operating model works: application, fulfilment, handover and review
-            — explained for vendors, clients and internal stakeholders.
-          </p>
-          <div className="mt-8">
-            <Button href="#audience-vendors" variant="secondary" className="bg-white">
-              View workflow
-            </Button>
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#5046c8_0%,#6c63e8_100%)] py-20 md:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div>
+            <SectionEyebrow tone="onDark">Partners &amp; operations</SectionEyebrow>
+            <h1 className="mt-3 max-w-2xl font-display text-headline text-white">
+              Vendors, riders and admin — one designed system
+            </h1>
+            <p className="mt-5 max-w-xl font-body text-body-lg text-white/80">
+              How LNDRY&rsquo;s operating model works: application, fulfilment, handover and
+              review — explained for vendors, clients and internal stakeholders.
+            </p>
+            <div className="mt-8">
+              <Button href="#audience-vendors" variant="secondary" className="bg-white">
+                View workflow
+              </Button>
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-elevated">
+            <Image
+              src="/brand/website-story/website-partners-operations-system-v1.png"
+              alt="LNDRY vendor, rider and admin staff coordinating an order in a partner store"
+              fill
+              sizes="(min-width: 1024px) 480px, 90vw"
+              className="object-cover"
+              priority
+            />
           </div>
         </Container>
       </section>

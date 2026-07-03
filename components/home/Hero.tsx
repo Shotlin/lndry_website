@@ -13,6 +13,7 @@ import { Pill } from "../ui/Pill";
 import { Button } from "../ui/Button";
 import { PhoneFrame } from "../ui/PhoneFrame";
 import { Thread } from "../ui/Thread";
+import { HeroThreadOverlay } from "../overlays/HeroThreadOverlay";
 
 const AmbientRibbon = dynamic(() => import("../three/AmbientRibbon").then((m) => m.AmbientRibbon), {
   ssr: false,
@@ -84,6 +85,7 @@ export function Hero() {
       className="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f4f3fb_62%,#eae8ff_100%)]"
     >
       <Thread className="pointer-events-none absolute -left-10 top-0 h-[640px] w-48" opacity={0.1} />
+      <HeroThreadOverlay className="pointer-events-none absolute inset-x-0 top-0 h-full w-full opacity-[0.08]" />
 
       <Container className="relative flex flex-col gap-14 pb-24 pt-16 md:pt-24 lg:flex-row lg:items-center lg:gap-10">
         <div className="relative z-10 max-w-xl">
@@ -118,24 +120,24 @@ export function Hero() {
         </div>
 
         <div className="hero-visual relative z-0 mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:flex-1">
-          <div className="absolute -right-10 -top-10 h-72 w-72 rounded-full bg-lavender-soft/70 blur-[2px]" />
-          <div className="pointer-events-none absolute inset-0 hidden md:block">
+          <div className="absolute -right-10 -top-14 h-56 w-56 rounded-full bg-lavender-soft/70 blur-[2px]" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 hidden md:block">
             <AmbientRibbon reducedMotion={reducedMotion} />
           </div>
 
-          <div className="relative mx-auto aspect-square w-full max-w-sm md:max-w-md">
+          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-xl shadow-elevated">
             <Image
-              src="/brand/illustrations/journey-home-relief-v2.png"
-              alt="LNDRY garment bag, folded clothes and a wooden hanger"
+              src="/brand/website-story/website-home-hero-indian-handoff-v1.png"
+              alt="An LNDRY delivery partner handing a labeled garment bag to a couple at their doorstep"
               fill
-              sizes="(min-width: 1024px) 480px, 380px"
-              className="object-contain drop-shadow-[0_24px_40px_rgba(67,55,145,0.16)]"
+              sizes="(min-width: 1024px) 560px, 90vw"
+              className="object-cover"
               priority
             />
           </div>
 
-          <div className="relative -mt-16 flex justify-center gap-4 sm:-mt-24 sm:gap-6">
-            <div className="w-32 rotate-[-4deg] sm:w-40">
+          <div className="relative -mt-16 flex justify-end gap-4 pr-4 sm:-mt-20 sm:gap-6">
+            <div className="w-28 rotate-[-4deg] sm:w-36">
               <PhoneFrame
                 src="/brand/mockups/location-serviceability-v1.png"
                 alt="Set your pickup location screen"
@@ -143,7 +145,7 @@ export function Hero() {
                 priority
               />
             </div>
-            <div className="mt-8 w-28 rotate-[4deg] sm:mt-12 sm:w-36">
+            <div className="mt-8 w-24 rotate-[4deg] sm:mt-10 sm:w-32">
               <PhoneFrame
                 src="/brand/mockups/review-order-v1.png"
                 alt="Review order screen"

@@ -18,13 +18,34 @@ const inter = Inter({
   display: "swap",
 });
 
+const title = "LNDRY — A laundry marketplace that feels handled, not handed off";
+const description =
+  "LNDRY helps customers compare nearby eligible vendors, choose services, schedule a 60-minute pickup slot, pay online, and follow OTP-verified delivery without calling around.";
+
 export const metadata: Metadata = {
-  title: "LNDRY — A laundry marketplace that feels handled, not handed off",
-  description:
-    "LNDRY helps customers compare nearby eligible vendors, choose services, schedule a 60-minute pickup slot, pay online, and follow OTP-verified delivery without calling around.",
+  metadataBase: new URL("https://lndry.app"),
+  title: {
+    default: title,
+    template: "%s",
+  },
+  description,
   icons: {
     icon: "/brand/deployment/favicon-32.png",
     apple: "/brand/deployment/ios-app-icon-1024.png",
+  },
+  openGraph: {
+    title,
+    description,
+    siteName: "LNDRY",
+    type: "website",
+    locale: "en_IN",
+    images: ["/brand/website-finishing/og/home-og-1200x630.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/brand/website-finishing/og/home-og-1200x630.png"],
   },
 };
 

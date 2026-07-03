@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useScrollReveal } from "@/lib/motion/useScrollReveal";
 import { Container } from "../ui/Container";
 import { SectionEyebrow } from "../ui/SectionEyebrow";
@@ -10,11 +11,18 @@ export function CloseCTA() {
   const scope = useScrollReveal<HTMLDivElement>({ selector: ".close-reveal", y: 24 });
 
   return (
-    <section
-      id="act-close"
-      ref={scope}
-      className="relative overflow-hidden bg-[linear-gradient(135deg,#5046c8_0%,#6c63e8_100%)] py-28 text-center"
-    >
+    <section id="act-close" ref={scope} className="relative overflow-hidden py-28 text-center">
+      <div className="absolute inset-0">
+        <Image
+          src="/brand/website-story/website-closing-trust-cta-v1.png"
+          alt="An LNDRY delivery partner completing a verified handover with a customer at their door"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(80,70,200,0.82)_0%,rgba(80,70,200,0.55)_45%,rgba(108,99,232,0.68)_100%)]" />
+      </div>
+
       <Thread className="pointer-events-none absolute -right-8 top-0 hidden h-full w-48 md:block" opacity={0.18} />
       <Thread className="pointer-events-none absolute -left-8 top-0 hidden h-full w-48 md:block" opacity={0.18} flip />
 
